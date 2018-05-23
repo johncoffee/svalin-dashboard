@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+}
+
+* {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.iframe-graph {
+    width: 100%;
+    height: 65vh;
+}

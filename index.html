@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="node_modules/foundation-sites/dist/css/foundation.min.css" rel="stylesheet">
+    <link href="src/style.css" rel="stylesheet">
+    <script type="module">
+        import { init } from './src/main.js'
+        init(window)
+    </script>
+</head>
+
+<body style="background: black url(assets/bg.png) no-repeat 0% 100%; background-size: cover">
+
+<div class="grid-y grid-frame grid-padding-x grid-padding-y">
+
+    <div class="cell shrink" style="background: rgba(63,64,72,0.85);">
+        <h3 style="color: #fff">Svalin dashboard</h3>
+    </div>
+
+    <div class="cell auto" style="background: rgba(245,222,179,0.91)">
+
+        <div class="grid-x grid-margin-x iframe-list">
+            <!--stuff happens here-->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
