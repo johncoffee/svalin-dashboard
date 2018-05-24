@@ -1,17 +1,20 @@
+document.addEventListener('DOMContentLoaded', () => {
+  console.debug("ready!")
+  init()
+}, {once: true})
 
-export function init(window) {
-
+function init() {
   const delay = parseInt(sessionStorage.refresh, 10) * 1000 || 60 * 1000
   const render = () => {
     console.debug('reload..')
-    window.location.reload()
+    location.reload()
   }
   setInterval(() => render(), delay)
 
   parseUrl()
 }
 
-export function parseUrl() {
+function parseUrl() {
 
   let q = location.search
   q = q.substr( q.indexOf("q=")+2 )

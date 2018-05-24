@@ -5,13 +5,13 @@
     <title>Title</title>
     <link href="node_modules/foundation-sites/dist/css/foundation.min.css" rel="stylesheet">
     <link href="src/style.css" rel="stylesheet">
-    <script type="module">
-        import { init } from './src/main.js'
-        init(window)
-    </script>
 </head>
 
 <body style="background: black url(assets/bg.png) no-repeat 0% 100%; background-size: cover">
+
+<script nomodule>
+  document.write("Problem: This browser does not support modules!")
+</script>
 
 <div class="grid-y grid-frame grid-padding-x grid-padding-y">
 
@@ -27,8 +27,6 @@
     </div>
 </div>
 
-<h1><script nomodule>
-  document.write("Problem: This browser does not support modules!")
-</script></h1>
+<script src="src/main.js"></script>
 </body>
 </html>
