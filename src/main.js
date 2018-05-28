@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }, {once: true})
 
 function init() {
-  const delay = parseInt(sessionStorage.refresh, 10) * 1000 || 60 * 1000
+  const delay = 10 * 60 * 1000 // 10 min
   const render = () => {
     console.debug('reload..')
     location.reload()
