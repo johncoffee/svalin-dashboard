@@ -15,32 +15,42 @@ function init() {
 }
 
 function parseUrl() {
-
-  let q = location.search
-  q = q.substr( q.indexOf("q=")+2 )
-
-  const frameIds = q.split(",")
-
+  let html
   const el = document.querySelector('.iframe-list')
-  let html = frameIds
-    .filter(id => !!id)
-    .map(id => {
-      return `
+  let inputString = getQueryVariable('q')
+  if (inputString) {
+    html = decodeURIComponent(inputString)
+      .split(',')
+      .filter(id => !!id)
+      .map(id => {
+        return `
         <div class="cell auto">
-            <iframe class="iframe-graph" frameborder="0" scrolling="no" src="https://plot.ly/~piredtu/${id}.embed"></iframe>
+            <iframe class="iframe-graph" frameborder="0" scrolling="no" src="//plot.ly/~rethore/${id}"></iframe>
         </div>            
       `
-    })
-    .join('')
-
-  if (!html) {
+      })
+      .join('')
+    el.innerHTML = html
+  }
+  else {
     html = `
-      <h3>
-        Add some IDs to the url, fx <code>http://localhost:8080/?q=35,36</code>
-      </h3>
+      <p>
+        Add some IDs to the url, fx <code>http://localhost:8080/?q=15.embed?share_key=QRyGh13G0ZJak8ay8MlE3Q,15.embed?share_key=QRyGh13G0ZJak8ay8MlE3Q</code>
+      </p>
     `
   }
 
   el.innerHTML = html
+
 }
 
+function getQueryVariable(variable) {
+  const query = window.location.search.substring(1)
+  let vars = query.split('&')
+  for (let i = 0; i < vars.length; i++) {
+    const pair = vars[i].split('=')
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1])
+    }
+  }
+}
